@@ -1,5 +1,11 @@
 package config
 
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+)
+
 var (
 	Token     string
 	BotPrefix string
@@ -12,5 +18,21 @@ type configStruct struct {
 }
 
 func ReadConfig() error {
+	file, err := ioutil.ReadFile("./config.json")
+	if err != nil {
+		fmt.Println(err.Error())
+		return err
+	}
+
+	fmt.Println(string(file))
+
+	if err = json.Unmarshal(file, &config); err != nil {
+		fmt.Println(err.Error())
+		return err
+	}
+
+	Token = config.Token
+	BotPrefix = config.BotPrefix
+
 	return nil
 }
