@@ -1,2 +1,3 @@
 # DISCORD BOT IN GOLANG
-### HOW TO IMPLEMENT
+### Document 
+Source from __Discord API__: https://discord.com/developers/docs/resources/channel
